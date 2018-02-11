@@ -4,7 +4,13 @@ class DeliveryOfficesController < ApplicationController
   # GET /delivery_offices
   # GET /delivery_offices.json
   def index
-    @delivery_offices = DeliveryOffice.all
+    if params[:postcode] && params[:distance]
+      postcode_response = postcode_look_up params[:postcode]
+      distance_in_meters = params[:distance].to_i * 1609
+      @delivery_offices = DeliveryOffice.search_in_radius(postcode_response.longitude, postcode_response.latitude, distance_in_meters)
+    else
+      @delivery_offices = DeliveryOffice.all
+    end
   end
 
   # GET /delivery_offices/1
@@ -71,4 +77,10 @@ class DeliveryOfficesController < ApplicationController
     def delivery_office_params
       params.require(:delivery_office).permit(:name, :postcode)
     end
+
+    def postcode_look_up _postcode
+      pio = Postcodes::IO.new
+      pio.lookup(_postcode)
+    end
+
 end

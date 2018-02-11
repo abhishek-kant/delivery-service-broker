@@ -6,6 +6,16 @@ class DeliveryOffice < ApplicationRecord
 
   before_save :fetch_and_save_lon_lat
 
+  scope :search_in_radius, -> (longitude, latitude, distance) {
+    where(%{
+      ST_DWithin(
+        lonlat,
+        ST_GeographyFromText('SRID=4326;POINT(%f %f)'),
+        %d
+      )
+    } % [longitude, latitude, distance])
+  }
+
 
   def fetch_and_save_lon_lat
     pio = Postcodes::IO.new
