@@ -2,13 +2,9 @@
 
 <h1>Delivery Offices</h1>
 
-<%= form_tag delivery_offices_path, method: :get do  %>
-  <%= label_tag :postcode %>
-  <%= text_field_tag :postcode, params[:postcode] %>
-  <%= label_tag :distance_in_miles %>
-  <%= text_field_tag :distance, params[:distance] %>
-  <%= submit_tag "Search" %>
-<% end %>
+<div id="filter-form">
+  <%= render partial: "filter_form" %>
+</div>
 
 <table>
   <thead>
