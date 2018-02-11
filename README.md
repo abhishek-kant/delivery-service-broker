@@ -1,24 +1,16 @@
-# README
+1. Clone the app and cd in to the app directory.
+2. Run bundle install, create db and run the migrations
+3. Run rails server
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Before you can test, you need to add some delivery_offices
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Go to /delivery_offices/new 
+  - fill the name and Postcode.
+  - create several delivery offices
+  
+  
+2. Then go to /
+  - you'll see all the delivery offices you added in the system
+  - Fill the Postcode and Distance in miles fields and press search.
+  - you'll be able to see a list of delivery offices within the distance you filled in the Distance in miles field. 
+ 
