@@ -83,3 +83,4 @@ production:
   database: delivery-service-broker_production
   username: delivery-service-broker
   password: <%= ENV['DELIVERY-SERVICE-BROKER_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'].sub(/^postgres/, "postgis") %>
