@@ -1,0 +1,2 @@
+class DeliveryOffice < ApplicationRecord
+end
