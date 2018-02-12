@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "delivery_offices/edit", type: :view do
   before(:each) do
     @delivery_office = assign(:delivery_office, DeliveryOffice.create!(
-      :name => "MyString",
-      :postcode => "MyString"
+      :name => "post code 1",
+      :postcode => "OX49 5NU"
     ))
   end
 
